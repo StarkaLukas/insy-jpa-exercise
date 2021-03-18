@@ -16,20 +16,4 @@ public class MovieCategoryKey implements Serializable {
         this.categoryId = categoryId;
         this.movieId = movieId;
     }
-
-    public Long getCategoryId() {
-        return categoryId;
-    }
-
-    public void setCategoryId(Long categoryId) {
-        this.categoryId = categoryId;
-    }
-
-    public Long getMovieId() {
-        return movieId;
-    }
-
-    public void setMovieId(Long movieId) {
-        this.movieId = movieId;
-    }
 }

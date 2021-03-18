@@ -3,6 +3,8 @@ package at.htl.workloads.movie;
 import at.htl.workloads.actor.Actor;
 import at.htl.workloads.category.Category;
 import at.htl.workloads.language.Language;
+import at.htl.workloads.movie_actor.MovieActor;
+import at.htl.workloads.movie_category.MovieCategory;
 import at.htl.workloads.sale.Sale;
 
 import javax.persistence.*;
@@ -20,14 +22,14 @@ public class Movie {
     private Double rating;
     private Language language;
 
-    @OneToMany(mappedBy = "id")
+    @OneToMany(mappedBy = "movie")
     private List<Sale> sales = new ArrayList<Sale>();
 
-    @OneToMany(mappedBy = "id")
-    private List<Actor> actors;
+    @OneToMany(mappedBy = "movie")
+    private List<MovieActor> movieActors;
 
-    @OneToMany(mappedBy = "id")
-    private List<Category> categories;
+    @OneToMany(mappedBy = "movie")
+    private List<MovieCategory> movieCategories;
 
     public Long getId() {
         return id;
@@ -85,19 +87,19 @@ public class Movie {
         this.sales = sales;
     }
 
-    public List<Actor> getActors() {
-        return actors;
+    public List<MovieActor> getMovieActors() {
+        return movieActors;
     }
 
-    public void setActors(List<Actor> actors) {
-        this.actors = actors;
+    public void setMovieActors(List<MovieActor> movieActors) {
+        this.movieActors = movieActors;
     }
 
-    public List<Category> getCategories() {
-        return categories;
+    public List<MovieCategory> getMovieCategories() {
+        return movieCategories;
     }
 
-    public void setCategories(List<Category> categories) {
-        this.categories = categories;
+    public void setMovieCategories(List<MovieCategory> movieCategories) {
+        this.movieCategories = movieCategories;
     }
 }

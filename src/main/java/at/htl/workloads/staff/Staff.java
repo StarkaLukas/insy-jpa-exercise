@@ -20,7 +20,7 @@ public class Staff extends Person {
     @JoinColumn(name = "store_id")
     private Store store;
 
-    @OneToMany(mappedBy = "id")
+    @OneToMany(mappedBy = "staff")
     private List<Sale> sales = new ArrayList<>();
 
     public LocalDate getHireDate() {

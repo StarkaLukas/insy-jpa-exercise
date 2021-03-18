@@ -15,20 +15,4 @@ public class MovieActorKey implements Serializable {
         this.actorId = actorId;
         this.movieId = movieId;
     }
-
-    public Long getActorId() {
-        return actorId;
-    }
-
-    public void setActorId(Long actorId) {
-        this.actorId = actorId;
-    }
-
-    public Long getMovieId() {
-        return movieId;
-    }
-
-    public void setMovieId(Long movieId) {
-        this.movieId = movieId;
-    }
 }

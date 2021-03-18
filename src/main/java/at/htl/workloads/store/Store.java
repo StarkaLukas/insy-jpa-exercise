@@ -15,7 +15,7 @@ public class Store {
     private String name;
     private String city;
 
-    @OneToMany(mappedBy = "id")
+    @OneToMany(mappedBy = "store")
     private List<Staff> staffList;
 
     public Long getId() {
@@ -40,5 +40,13 @@ public class Store {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public List<Staff> getStaffList() {
+        return staffList;
+    }
+
+    public void setStaffList(List<Staff> staffList) {
+        this.staffList = staffList;
     }
 }

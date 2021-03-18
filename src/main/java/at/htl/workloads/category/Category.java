@@ -1,6 +1,7 @@
 package at.htl.workloads.category;
 
 import at.htl.workloads.movie.Movie;
+import at.htl.workloads.movie_category.MovieCategory;
 
 import javax.persistence.*;
 import java.util.List;
@@ -12,8 +13,8 @@ public class Category {
     private Long id;
     private String name;
 
-    @OneToMany(mappedBy = "id")
-    private List<Movie> movies;
+    @OneToMany(mappedBy = "category")
+    private List<MovieCategory> movieCategories;
 
     public Long getId() {
         return id;
@@ -23,12 +24,12 @@ public class Category {
         this.id = id;
     }
 
-    public List<Movie> getMovies() {
-        return movies;
+    public List<MovieCategory> getMovieCategories() {
+        return movieCategories;
     }
 
-    public void setMovies(List<Movie> movies) {
-        this.movies = movies;
+    public void setMovieCategories(List<MovieCategory> movieCategories) {
+        this.movieCategories = movieCategories;
     }
 
     public String getName() {

@@ -1,6 +1,7 @@
 package at.htl.workloads.customer;
 
 import at.htl.workloads.person.Person;
+import at.htl.workloads.sale.Sale;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
@@ -19,8 +20,8 @@ public class Customer extends Person {
     private String street;
     private String zip;
 
-    @OneToMany(mappedBy = "id")
-    private List<Customer> sales = new ArrayList<Customer>();
+    @OneToMany(mappedBy = "customer")
+    private List<Sale> sales = new ArrayList<Sale>();
 
     public LocalDate getDateOfBirth() {
         return dateOfBirth;
@@ -54,11 +55,11 @@ public class Customer extends Person {
         this.zip = zip;
     }
 
-    public List<Customer> getSales() {
+    public List<Sale> getSales() {
         return sales;
     }
 
-    public void setSales(List<Customer> sales) {
+    public void setSales(List<Sale> sales) {
         this.sales = sales;
     }
 }

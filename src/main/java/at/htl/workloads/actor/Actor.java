@@ -1,6 +1,7 @@
 package at.htl.workloads.actor;
 
 import at.htl.workloads.movie.Movie;
+import at.htl.workloads.movie_actor.MovieActor;
 import at.htl.workloads.person.Person;
 
 import javax.persistence.*;
@@ -10,14 +11,14 @@ import java.util.List;
 @PrimaryKeyJoinColumn(name = "id")
 public class Actor extends Person {
 
-    @OneToMany(mappedBy = "id")
-    private List<Movie> movies;
+    @OneToMany(mappedBy = "actor")
+    private List<MovieActor> movieActors;
 
-    public List<Movie> getMovies() {
-        return movies;
+    public List<MovieActor> getMovieActors() {
+        return movieActors;
     }
 
-    public void setMovies(List<Movie> movies) {
-        this.movies = movies;
+    public void setMovieActors(List<MovieActor> movieActors) {
+        this.movieActors = movieActors;
     }
 }
