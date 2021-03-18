@@ -3,18 +3,14 @@ package at.htl.workloads.actor;
 import at.htl.workloads.movie.Movie;
 import at.htl.workloads.person.Person;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @PrimaryKeyJoinColumn(name = "id")
 public class Actor extends Person {
 
-    @ManyToMany()
-    @JoinColumn(name = "movie_id")
+    @OneToMany(mappedBy = "id")
     private List<Movie> movies;
 
     public List<Movie> getMovies() {

@@ -3,13 +3,16 @@ package at.htl.workloads.movie;
 import at.htl.workloads.actor.Actor;
 import at.htl.workloads.category.Category;
 import at.htl.workloads.language.Language;
+import at.htl.workloads.sale.Sale;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 public class Movie {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
     private Integer year;
@@ -17,16 +20,13 @@ public class Movie {
     private Double rating;
     private Language language;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "Movie_Actors",
-    joinColumns = @JoinColumn(name = "movie_id"),
-    inverseJoinColumns = @JoinColumn(name = "actor_id"))
+    @OneToMany(mappedBy = "id")
+    private List<Sale> sales = new ArrayList<Sale>();
+
+    @OneToMany(mappedBy = "id")
     private List<Actor> actors;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "Movie_Categories",
-    joinColumns = @JoinColumn(name = "movie_id"),
-    inverseJoinColumns = @JoinColumn(name = "category_id"))
+    @OneToMany(mappedBy = "id")
     private List<Category> categories;
 
     public Long getId() {
@@ -45,27 +45,27 @@ public class Movie {
         this.title = title;
     }
 
-    public int getYear() {
+    public Integer getYear() {
         return year;
     }
 
-    public void setYear(int year) {
+    public void setYear(Integer year) {
         this.year = year;
     }
 
-    public double getDuration() {
+    public Double getDuration() {
         return duration;
     }
 
-    public void setDuration(double duration) {
+    public void setDuration(Double duration) {
         this.duration = duration;
     }
 
-    public double getRating() {
+    public Double getRating() {
         return rating;
     }
 
-    public void setRating(double rating) {
+    public void setRating(Double rating) {
         this.rating = rating;
     }
 
@@ -75,6 +75,14 @@ public class Movie {
 
     public void setLanguage(Language language) {
         this.language = language;
+    }
+
+    public List<Sale> getSales() {
+        return sales;
+    }
+
+    public void setSales(List<Sale> sales) {
+        this.sales = sales;
     }
 
     public List<Actor> getActors() {

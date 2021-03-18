@@ -2,22 +2,34 @@ package at.htl.workloads.category;
 
 import at.htl.workloads.movie.Movie;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
 public class Category {
 
     @Id
+    private Long id;
     private String name;
-    private String description;
 
-    @ManyToMany
-    @JoinColumn(name = "movie_id")
+    @OneToMany(mappedBy = "id")
     private List<Movie> movies;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public List<Movie> getMovies() {
+        return movies;
+    }
+
+    public void setMovies(List<Movie> movies) {
+        this.movies = movies;
+    }
 
     public String getName() {
         return name;
@@ -25,13 +37,5 @@ public class Category {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 }
