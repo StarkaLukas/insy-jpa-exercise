@@ -1,6 +1,6 @@
 package at.htl.workloads.customer;
 
-import at.htl.model.Customer.CustomerDTO;
+import at.htl.model.customer.CustomerDTO;
 
 import javax.enterprise.context.RequestScoped;
 import java.util.List;

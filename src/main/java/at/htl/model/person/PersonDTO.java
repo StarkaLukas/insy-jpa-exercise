@@ -1,4 +1,4 @@
-package at.htl.model.Person;
+package at.htl.model.person;
 
 public class PersonDTO {
     private Long id;

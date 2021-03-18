@@ -1,7 +1,7 @@
-package at.htl.model.Customer;
+package at.htl.model.customer;
 
-import at.htl.model.Person.PersonDTO;
-import at.htl.workloads.person.Person;
+import at.htl.model.person.PersonDTO;
+import at.htl.workloads.customer.Customer;
 
 import java.time.LocalDate;
 
