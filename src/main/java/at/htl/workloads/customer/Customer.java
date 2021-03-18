@@ -13,6 +13,7 @@ import java.util.List;
 
 @Entity
 @PrimaryKeyJoinColumn(name = "id")
+@DiscriminatorValue(value = "Customer")
 public class Customer extends Person {
 
     private LocalDate dateOfBirth;

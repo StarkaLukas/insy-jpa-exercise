@@ -1,6 +1,5 @@
 package at.htl.workloads.actor;
 
-import at.htl.workloads.movie.Movie;
 import at.htl.workloads.movie_actor.MovieActor;
 import at.htl.workloads.person.Person;
 
@@ -9,6 +8,7 @@ import java.util.List;
 
 @Entity
 @PrimaryKeyJoinColumn(name = "id")
+@DiscriminatorValue(value = "Actor")
 public class Actor extends Person {
 
     @OneToMany(mappedBy = "actor")

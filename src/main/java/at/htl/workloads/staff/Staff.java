@@ -11,6 +11,7 @@ import java.util.List;
 
 @Entity
 @PrimaryKeyJoinColumn(name = "id")
+@DiscriminatorValue(value = "Staff")
 public class Staff extends Person {
 
     private LocalDate hireDate;
