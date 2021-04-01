@@ -1,7 +1,5 @@
 package at.htl.workloads.movie;
 
-import at.htl.workloads.actor.Actor;
-import at.htl.workloads.category.Category;
 import at.htl.workloads.language.Language;
 import at.htl.workloads.movie_actor.MovieActor;
 import at.htl.workloads.movie_category.MovieCategory;
