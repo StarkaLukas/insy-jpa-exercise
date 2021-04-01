@@ -3,16 +3,13 @@ package at.htl.workloads.customer;
 import at.htl.workloads.person.Person;
 import at.htl.workloads.sale.Sale;
 
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@PrimaryKeyJoinColumn(name = "id")
+@PrimaryKeyJoinColumn(name = "person_id")
 @DiscriminatorValue(value = "Customer")
 public class Customer extends Person {
 
@@ -21,7 +18,7 @@ public class Customer extends Person {
     private String street;
     private String zip;
 
-    @OneToMany(mappedBy = "customer")
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.PERSIST)
     private List<Sale> sales = new ArrayList<Sale>();
 
     public LocalDate getDateOfBirth() {

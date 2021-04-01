@@ -7,11 +7,11 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@PrimaryKeyJoinColumn(name = "id")
+@PrimaryKeyJoinColumn(name = "person_id")
 @DiscriminatorValue(value = "Actor")
 public class Actor extends Person {
 
-    @OneToMany(mappedBy = "actor")
+    @OneToMany(mappedBy = "actor", cascade = CascadeType.PERSIST)
     private List<MovieActor> movieActors;
 
     public List<MovieActor> getMovieActors() {

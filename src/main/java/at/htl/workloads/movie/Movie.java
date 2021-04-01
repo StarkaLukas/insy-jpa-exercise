@@ -20,13 +20,13 @@ public class Movie {
     private Double rating;
     private Language language;
 
-    @OneToMany(mappedBy = "movie")
+    @OneToMany(mappedBy = "movie", cascade = CascadeType.PERSIST)
     private List<Sale> sales = new ArrayList<Sale>();
 
-    @OneToMany(mappedBy = "movie")
+    @OneToMany(mappedBy = "movie", cascade = CascadeType.PERSIST)
     private List<MovieActor> movieActors;
 
-    @OneToMany(mappedBy = "movie")
+    @OneToMany(mappedBy = "movie", cascade = CascadeType.PERSIST)
     private List<MovieCategory> movieCategories;
 
     public Long getId() {

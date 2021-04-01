@@ -15,7 +15,7 @@ public class Store {
     private String name;
     private String city;
 
-    @OneToMany(mappedBy = "store")
+    @OneToMany(mappedBy = "store", cascade = CascadeType.PERSIST)
     private List<Staff> staffList;
 
     public Long getId() {
