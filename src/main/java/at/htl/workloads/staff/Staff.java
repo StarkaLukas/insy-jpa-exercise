@@ -32,12 +32,8 @@ public class Staff extends Person {
         this.hireDate = hireDate;
     }
 
-    public double getSalary() {
+    public Double getSalary() {
         return salary;
-    }
-
-    public void setSalary(double salary) {
-        this.salary = salary;
     }
 
     public void setSalary(Double salary) {
