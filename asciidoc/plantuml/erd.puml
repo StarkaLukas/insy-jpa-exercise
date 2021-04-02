@@ -66,7 +66,7 @@ entity "Staff" as staff {
 }
 
 entity "Store" as store {
-  *id : bigint <<auto increment>>
+  *id : bigint <<sequence>>
   --
   name : varchar
   city : varchar

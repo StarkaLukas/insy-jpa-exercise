@@ -6,10 +6,11 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@SequenceGenerator(name = "seq", initialValue = 1000)
 public class Store {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
     private Long id;
 
     private String name;
