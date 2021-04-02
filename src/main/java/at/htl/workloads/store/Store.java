@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@SequenceGenerator(name = "seq", initialValue = 1000)
+@SequenceGenerator(name = "seq", initialValue = 1000, sequenceName = "seq")
 public class Store {
 
     @Id
