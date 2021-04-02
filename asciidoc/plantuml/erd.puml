@@ -1,0 +1,102 @@
+@startuml
+' hide the spot
+hide circle
+
+' avoid problems with angled crows feet
+skinparam linetype ortho
+
+entity "Actor" as actor {
+  *person_id: bigint <<auto increment>>
+  --
+  *person_id : bigint<<FK>>
+}
+
+entity "Category" as category {
+  *id : bigint <<auto increment>>
+  --
+  name : varchar
+}
+
+entity "Customer" as customer {
+  *person_id : bigint <<auto increment>>
+  --
+  *person_id : bigint <<FK>>
+  dateofbirth : text
+  place: varchar
+  street: varchar
+  zip: varchar
+}
+
+entity "Movie" as movie {
+  *id : bigint <<auto increment>>
+  --
+  duration : double
+  language : integer
+  rating: double
+  title varchar
+  year: integer
+}
+
+entity "Person" as person {
+  *id : bigint <<auto increment>>
+  --
+  *id: bigint <<FK>>
+  person_type : varchar
+  firstname : varchar
+  lastname: varchar
+}
+
+entity "Sale" as sale {
+  *id : bigint <<auto increment>>
+  --
+  *customer_person_id : bigint <<FK>>
+  *movie_id : bigint <<FK>>
+  *staff_person_id : bigint <<FK>>
+  price : double
+  payment_date: date
+}
+
+entity "Staff" as staff {
+  *person_id : bigint <<auto increment>>
+  --
+  *person_id: bigint <<FK>>
+  *store_id : bigint <<FK>>
+  hiredate : date
+  salary: double
+}
+
+entity "Store" as store {
+  *id : bigint <<auto increment>>
+  --
+  name : varchar
+  city : varchar
+}
+
+entity "MovieActor" as ma {
+  *movie_id : bigint <<auto increment>>
+  *actor_id: bigint <<auto increment>>
+  --
+  *movie_id : bigint <<FK>>
+  *actor_id : bigint <<FK>>
+}
+
+entity "MovieCategory" as mc {
+  *movie_id : bigint <<auto increment>>
+  *category_id: bigint <<auto increment>>
+  --
+  *movie_id : bigint <<FK>>
+  *category_id : bigint <<FK>>
+}
+
+store ||.left.o{ staff
+staff ||..o{ sale
+customer ||..o{ sale
+movie ||..o| sale
+movie ||..|{ ma
+actor ||.right.o{ ma
+movie ||..|{ mc
+category ||..o{ mc
+person --|> customer
+person --|> staff
+person --|> actor
+@enduml
