@@ -91,7 +91,7 @@ entity "MovieCategory" as mc {
 store ||.left.o{ staff
 staff ||..o{ sale
 customer ||..o{ sale
-movie ||..o| sale
+movie ||..o{ sale
 movie ||..|{ ma
 actor ||.right.o{ ma
 movie ||..|{ mc
