@@ -1,0 +1,53 @@
+GET localhost:8080/api/movie/all
+Accept: application/json
+
+###
+
+GET localhost:8080/api/movie/1
+Accept: application/json
+
+###
+
+POST localhost:8080/api/movie
+Accept: application/json
+Content-Type: application/json
+
+{
+  "duration": 0,
+  "id": 0,
+  "language": "BENGALI",
+  "rating": 0,
+  "saleList": [
+    {
+      "customer": {
+        "firstName": "string",
+        "id": 0,
+        "lastName": "string",
+        "dateOfBirth": "2021-04-05",
+        "place": "string",
+        "street": "string",
+        "zip": "string"
+      },
+      "id": 0,
+      "payment_date": "2021-04-05",
+      "price": 0,
+      "staff": {
+        "firstName": "string",
+        "id": 0,
+        "lastName": "string",
+        "hireDate": "2021-04-05",
+        "salary": 0,
+        "store": {
+          "city": "string",
+          "id": 0,
+          "name": "string",
+          "staffList": [
+            null
+          ]
+        }
+      }
+    }
+  ],
+  "title": "string",
+  "year": 0
+}
