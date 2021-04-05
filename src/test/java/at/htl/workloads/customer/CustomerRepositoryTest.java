@@ -6,21 +6,20 @@ import org.assertj.core.api.AssertionsForClassTypes;
 import org.junit.jupiter.api.Test;
 
 import javax.inject.Inject;
-import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;
 
 @QuarkusTest
-public class CustomerRepositoryTest {
+public class CustomerRepositoryTest extends IntTestBase{
 
     @Inject
     CustomerRepositoryImpl customerRepository;
 
     @Test
-    @Transactional
     public void addCustomer_getCustomer_simple_success() {
         Customer customer = new Customer();
         customer.setFirstName("Custi");
@@ -37,7 +36,6 @@ public class CustomerRepositoryTest {
     }
 
     @Test
-    @Transactional
     public void addCustomers_getAllCustomers_success() {
         Customer customer1 = new Customer();
         customer1.setFirstName("Custi");
@@ -67,4 +65,14 @@ public class CustomerRepositoryTest {
         assertThat(loadedCustomer.get(savedCustomers + 1)).isEqualTo(customer2);
     }
 
+    @Test
+    public void getCustomer_notExists() {
+        AtomicReference<Customer> loadedCustomer = new AtomicReference<>();
+
+        AssertionsForClassTypes.assertThatCode(() -> {
+            loadedCustomer.set(customerRepository.getCustomerById(1L));
+        }).doesNotThrowAnyException();
+
+        AssertionsForClassTypes.assertThat(loadedCustomer.get()).isNull();
+    }
 }
