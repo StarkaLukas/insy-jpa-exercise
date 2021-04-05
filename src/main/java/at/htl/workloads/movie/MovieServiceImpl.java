@@ -39,15 +39,11 @@ public class MovieServiceImpl implements MovieService {
         movie.setTitle(newMovie.getTitle());
         movie.setYear(newMovie.getYear());
 
-        System.out.println(movie);
-
         for (SaleDTO saleDTO : newMovie.getSaleList()) {
             Sale sale = new Sale();
             sale.setMovie(movie);
             sale.setPrice(saleDTO.getPrice());
             sale.setPayment_date(saleDTO.getPayment_date());
-
-            System.out.println(sale);
 
             Customer customer = new Customer();
             customer.setStreet(saleDTO.getCustomer().getStreet());
@@ -57,8 +53,6 @@ public class MovieServiceImpl implements MovieService {
             customer.setZip(saleDTO.getCustomer().getZip());
             customer.setDateOfBirth(saleDTO.getCustomer().getDateOfBirth());
             customer.getSales().add(sale);
-
-            System.out.println(customer);
 
             sale.setCustomer(customer);
 
@@ -81,7 +75,6 @@ public class MovieServiceImpl implements MovieService {
 
             movie.getSales().add(sale);
 
-            System.out.println(movie);
         }
 
         movieRepository.addMovie(movie);
