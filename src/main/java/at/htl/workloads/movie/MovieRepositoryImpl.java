@@ -3,7 +3,9 @@ package at.htl.workloads.movie;
 import at.htl.workloads.actor.Actor;
 import at.htl.workloads.category.Category;
 import at.htl.workloads.movie_actor.MovieActor;
+import at.htl.workloads.movie_actor.MovieActorKey;
 import at.htl.workloads.movie_category.MovieCategory;
+import at.htl.workloads.movie_category.MovieCategoryKey;
 
 import javax.enterprise.context.RequestScoped;
 import javax.persistence.EntityManager;
@@ -35,6 +37,10 @@ public class MovieRepositoryImpl implements MovieRepository{
                 MovieCategory movieCategory = new MovieCategory();
                 movieCategory.setMovie(movie);
                 movieCategory.setCategory(category);
+
+                MovieCategoryKey movieCategoryKey = new MovieCategoryKey(category.getId(), movie.getId());
+                movieCategory.setId(movieCategoryKey);
+
                 entityManager.persist(movieCategory);
             }
         }
@@ -47,6 +53,10 @@ public class MovieRepositoryImpl implements MovieRepository{
                 MovieActor movieActor = new MovieActor();
                 movieActor.setMovie(movie);
                 movieActor.setActor(actor);
+
+                MovieActorKey movieActorKey = new MovieActorKey(actor.getId(), movie.getId());
+                movieActor.setId(movieActorKey);
+
                 entityManager.persist(movieActor);
             }
         }

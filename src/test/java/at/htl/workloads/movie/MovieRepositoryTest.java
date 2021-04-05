@@ -1,12 +1,15 @@
 package at.htl.workloads.movie;
 
 import at.htl.IntTestBase;
+import at.htl.workloads.actor.Actor;
+import at.htl.workloads.category.Category;
 import at.htl.workloads.language.Language;
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
 
 import javax.inject.Inject;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -60,6 +63,48 @@ public class MovieRepositoryTest extends IntTestBase{
         assertThat(loadedMovies.size()).isEqualTo(savedMovies + 2);
         assertThat(loadedMovies.get(savedMovies)).isEqualTo(movie1);
         assertThat(loadedMovies.get(savedMovies + 1)).isEqualTo(movie2);
+    }
+
+    @Test
+    public void addActorsToMovie_success() {
+        Movie movie1 = new Movie();
+        movie1.setTitle("The Godfather");
+        movie1.setYear(1972);
+        movie1.setRating(9.2);
+        movie1.setDuration(178d);
+        movie1.setLanguage(Language.ENGLISH);
+
+        assertThatCode(() -> movieRepository.addMovie(movie1)).doesNotThrowAnyException();
+
+        List<Actor> actors = new ArrayList<>();
+        Actor actor = new Actor();
+        actor.setLastName("Al");
+        actor.setLastName("Pacino");
+
+        actors.add(actor);
+
+        assertThatCode(() -> movieRepository.addActorsToMovie(movie1, actors)).doesNotThrowAnyException();
+    }
+
+    @Test
+    public void addCategoriesToMovie_success() {
+        Movie movie1 = new Movie();
+        movie1.setTitle("The Godfather");
+        movie1.setYear(1972);
+        movie1.setRating(9.2);
+        movie1.setDuration(178d);
+        movie1.setLanguage(Language.ENGLISH);
+
+        assertThatCode(() -> movieRepository.addMovie(movie1)).doesNotThrowAnyException();
+
+        List<Category> categories = new ArrayList<>();
+
+        Category category = new Category();
+        category.setName("Drama");
+
+        categories.add(category);
+
+        assertThatCode(() -> movieRepository.addCategoriesToMovie(movie1, categories)).doesNotThrowAnyException();
     }
 
     @Test
