@@ -33,7 +33,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public List<Category> getCategoryList() {
-        return categoryRepository.getCategoryList();
+    public List<Category> getAllCategories() {
+        return categoryRepository.getAllCategories();
     }
 }

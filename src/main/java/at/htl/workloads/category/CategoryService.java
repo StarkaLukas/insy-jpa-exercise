@@ -10,5 +10,5 @@ public interface CategoryService {
 
     boolean addCategory(CategoryDTO newCategory);
 
-    List<Category> getCategoryList();
+    List<Category> getAllCategories();
 }

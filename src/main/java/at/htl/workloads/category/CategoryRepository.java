@@ -8,5 +8,5 @@ public interface CategoryRepository {
 
     void addCategory(Category category);
 
-    List<Category> getCategoryList();
+    List<Category> getAllCategories();
 }
