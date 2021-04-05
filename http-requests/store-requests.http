@@ -46,3 +46,8 @@ Content-Type: application/json
     }
   ]
 }
+
+###
+
+GET localhost:8080/api/store/getLocationAndCount
+Accept: application/json
