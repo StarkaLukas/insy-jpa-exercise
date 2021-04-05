@@ -1,5 +1,7 @@
 package at.htl.api;
 
+import at.htl.model.actor.ActorDTO;
+import at.htl.model.category.CategoryDTO;
 import at.htl.model.movie.MovieDTO;
 import at.htl.workloads.movie.Movie;
 import at.htl.workloads.movie.MovieActName;
@@ -50,6 +52,28 @@ public class MovieResource {
         boolean result = movieService.addMovie(newMovie);
 
         return (result ? Response.ok(newMovie) : Response.status(Response.Status.BAD_REQUEST)).build();
+    }
+
+    @Transactional
+    @POST
+    @Path("/addCategoriesToMovie")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response addCategoriesToMovie(MovieDTO movieDTO, List<CategoryDTO> categoryDTOS) {
+        boolean result = movieService.addCategoriesToMovie(movieDTO, categoryDTOS);
+
+        return (result ? Response.ok() : Response.status(Response.Status.BAD_REQUEST)).build();
+    }
+
+    @Transactional
+    @POST
+    @Path("/addActorsToMovie")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response addActorsToMovie(MovieDTO movieDTO, List<ActorDTO> actorDTOS) {
+        boolean result = movieService.addActorsToMovie(movieDTO, actorDTOS);
+
+        return (result ? Response.ok() : Response.status(Response.Status.BAD_REQUEST)).build();
     }
 
     @GET

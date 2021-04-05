@@ -1,5 +1,10 @@
 package at.htl.workloads.movie;
 
+import at.htl.workloads.actor.Actor;
+import at.htl.workloads.category.Category;
+import at.htl.workloads.movie_actor.MovieActor;
+import at.htl.workloads.movie_category.MovieCategory;
+
 import javax.enterprise.context.RequestScoped;
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -21,6 +26,30 @@ public class MovieRepositoryImpl implements MovieRepository{
     @Override
     public void addMovie(Movie movie) {
         entityManager.persist(movie);
+    }
+
+    @Override
+    public void addCategoriesToMovie(Movie movie, List<Category> categories) {
+        if (getMovieById(movie.getId()) != null) {
+            for (Category category : categories) {
+                MovieCategory movieCategory = new MovieCategory();
+                movieCategory.setMovie(movie);
+                movieCategory.setCategory(category);
+                entityManager.persist(movieCategory);
+            }
+        }
+    }
+
+    @Override
+    public void addActorsToMovie(Movie movie, List<Actor> actors) {
+        if (getMovieById(movie.getId()) != null) {
+            for (Actor actor : actors) {
+                MovieActor movieActor = new MovieActor();
+                movieActor.setMovie(movie);
+                movieActor.setActor(actor);
+                entityManager.persist(movieActor);
+            }
+        }
     }
 
     @Override

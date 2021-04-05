@@ -1,13 +1,18 @@
 package at.htl.workloads.movie;
 
+import at.htl.model.actor.ActorDTO;
+import at.htl.model.category.CategoryDTO;
 import at.htl.model.movie.MovieDTO;
 import at.htl.model.sale.SaleDTO;
+import at.htl.workloads.actor.Actor;
+import at.htl.workloads.category.Category;
 import at.htl.workloads.customer.Customer;
 import at.htl.workloads.sale.Sale;
 import at.htl.workloads.staff.Staff;
 import at.htl.workloads.store.Store;
 
 import javax.enterprise.context.RequestScoped;
+import java.util.ArrayList;
 import java.util.List;
 
 @RequestScoped
@@ -32,6 +37,60 @@ public class MovieServiceImpl implements MovieService {
             return false;
         }
 
+        Movie movie = createMovieFromDTO(newMovie);
+
+        movieRepository.addMovie(movie);
+
+        return true;
+    }
+
+    @Override
+    public boolean addCategoriesToMovie(MovieDTO movie, List<CategoryDTO> categories) {
+        Movie movieToAdd = movieRepository.getMovieById(movie.getId());
+
+        if (movieToAdd != null) {
+            List<Category> categoriesToAdd = new ArrayList<>();
+
+            for (CategoryDTO category : categories) {
+                Category categoryToAdd = new Category();
+                category.setName(category.getName());
+
+                categoriesToAdd.add(categoryToAdd);
+            }
+
+            movieRepository.addCategoriesToMovie(movieToAdd, categoriesToAdd);
+
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    @Override
+    public boolean addActorsToMovie(MovieDTO movie, List<ActorDTO> actors) {
+        Movie movieToAdd = movieRepository.getMovieById(movie.getId());
+
+        if (movieToAdd != null) {
+            List<Actor> actorsToAdd = new ArrayList<>();
+
+            for (ActorDTO actor : actors) {
+                Actor actorToAdd = new Actor();
+                actor.setFirstName(actor.getFirstName());
+                actor.setLastName(actor.getLastName());
+
+                actorsToAdd.add(actorToAdd);
+            }
+
+            movieRepository.addActorsToMovie(movieToAdd, actorsToAdd);
+
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private Movie createMovieFromDTO(MovieDTO newMovie) {
         Movie movie = new Movie();
         movie.setDuration(newMovie.getDuration());
         movie.setLanguage(newMovie.getLanguage());
@@ -77,9 +136,7 @@ public class MovieServiceImpl implements MovieService {
 
         }
 
-        movieRepository.addMovie(movie);
-
-        return true;
+        return movie;
     }
 
     @Override
