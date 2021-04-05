@@ -2,6 +2,7 @@ package at.htl.workloads.store;
 
 import at.htl.workloads.staff.Staff;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import java.util.List;
 
@@ -17,6 +18,7 @@ public class Store {
     private String city;
 
     @OneToMany(mappedBy = "store", cascade = CascadeType.PERSIST)
+    @JsonbTransient
     private List<Staff> staffList;
 
     public Long getId() {

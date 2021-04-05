@@ -3,9 +3,11 @@ package at.htl.workloads.sale;
 import at.htl.workloads.customer.Customer;
 import at.htl.workloads.movie.Movie;
 import at.htl.workloads.staff.Staff;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
+import javax.json.bind.annotation.JsonbDateFormat;
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -17,18 +19,23 @@ public class Sale {
     private Long id;
 
     @ManyToOne
+    @JsonIgnore
     @Cascade(CascadeType.ALL)
     private Movie movie;
 
     @ManyToOne
+    @JsonIgnore
     @Cascade(CascadeType.ALL)
     private Customer customer;
 
     @ManyToOne
+    @JsonIgnore
     @Cascade(CascadeType.ALL)
     private Staff staff;
 
+    @JsonbDateFormat("dd-MM-yyyy")
     private LocalDate payment_date;
+
     private Double price;
 
     public Long getId() {

@@ -1,6 +1,5 @@
 package at.htl.workloads.category;
 
-import at.htl.workloads.movie.Movie;
 import at.htl.workloads.movie_category.MovieCategory;
 
 import javax.persistence.*;

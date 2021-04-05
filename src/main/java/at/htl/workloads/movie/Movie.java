@@ -5,6 +5,7 @@ import at.htl.workloads.movie_actor.MovieActor;
 import at.htl.workloads.movie_category.MovieCategory;
 import at.htl.workloads.sale.Sale;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,12 +24,15 @@ public class Movie {
     private Language language;
 
     @OneToMany(mappedBy = "movie", cascade = CascadeType.PERSIST)
+    @JsonbTransient
     private List<Sale> sales = new ArrayList<>();
 
     @OneToMany(mappedBy = "movie", cascade = CascadeType.PERSIST)
+    @JsonbTransient
     private List<MovieActor> movieActors;
 
     @OneToMany(mappedBy = "movie", cascade = CascadeType.PERSIST)
+    @JsonbTransient
     private List<MovieCategory> movieCategories;
 
     public Long getId() {
