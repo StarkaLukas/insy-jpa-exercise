@@ -6,7 +6,5 @@ public interface CategoryRepository {
 
     Category getCategoryById(Long id);
 
-    void addCategory(Category category);
-
     List<Category> getAllCategories();
 }

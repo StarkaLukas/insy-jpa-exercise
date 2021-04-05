@@ -17,11 +17,6 @@ public class CategoryRepositoryImpl implements CategoryRepository{
     }
 
     @Override
-    public void addCategory(Category category) {
-        entityManager.persist(category);
-    }
-
-    @Override
     public List<Category> getAllCategories() {
         var query = entityManager.createQuery("select c from Category c", Category.class);
         return query.getResultList();

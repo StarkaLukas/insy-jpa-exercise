@@ -6,7 +6,5 @@ public interface ActorRepository {
 
     Actor getActorById(Long id);
 
-    void addActor(Actor actor);
-
     List<Actor> getActorList();
 }

@@ -19,11 +19,6 @@ public class ActorRepositoryImpl implements ActorRepository{
     }
 
     @Override
-    public void addActor(Actor actor) {
-        entityManager.persist(actor);
-    }
-
-    @Override
     public List<Actor> getActorList() {
         var query = entityManager.createQuery("select a from Actor a", Actor.class);
         return query.getResultList();
