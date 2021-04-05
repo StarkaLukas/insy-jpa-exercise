@@ -1,20 +1,18 @@
 package at.htl.workloads.store;
 
 import at.htl.IntTestBase;
-import at.htl.workloads.sale.Sale;
 import at.htl.workloads.staff.Staff;
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
 
 import javax.inject.Inject;
-import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.assertj.core.api.AssertionsForClassTypes.assertThatCode;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatCode;
 
 @QuarkusTest
 public class StoreRepositoryTest extends IntTestBase{

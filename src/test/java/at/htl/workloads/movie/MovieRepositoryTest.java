@@ -2,7 +2,6 @@ package at.htl.workloads.movie;
 
 import at.htl.IntTestBase;
 import at.htl.workloads.language.Language;
-import at.htl.workloads.store.Store;
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
 
@@ -11,8 +10,8 @@ import javax.inject.Inject;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.assertj.core.api.AssertionsForClassTypes.assertThatCode;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatCode;
 
 @QuarkusTest
 public class MovieRepositoryTest extends IntTestBase{
