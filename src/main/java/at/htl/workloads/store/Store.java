@@ -4,14 +4,14 @@ import at.htl.workloads.staff.Staff;
 
 import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@SequenceGenerator(name = "seq", initialValue = 1000, sequenceName = "seq")
 public class Store {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
@@ -19,7 +19,7 @@ public class Store {
 
     @OneToMany(mappedBy = "store", cascade = CascadeType.PERSIST)
     @JsonbTransient
-    private List<Staff> staffList;
+    private List<Staff> staffList = new ArrayList<>();
 
     public Long getId() {
         return id;

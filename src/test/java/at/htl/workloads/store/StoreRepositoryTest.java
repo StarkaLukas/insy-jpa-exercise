@@ -82,7 +82,7 @@ public class StoreRepositoryTest extends IntTestBase{
     public void getStore_notExists() {
         AtomicReference<Store> loadedStore = new AtomicReference<>();
         assertThatCode(() -> {
-            loadedStore.set(storeRepository.getStoreById(1000L));
+            loadedStore.set(storeRepository.getStoreById(1L));
         }).doesNotThrowAnyException();
 
         assertThat(loadedStore.get()).isNull();
