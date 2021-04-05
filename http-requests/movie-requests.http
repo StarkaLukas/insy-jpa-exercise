@@ -44,3 +44,7 @@ Content-Type: application/json
   "title": "The Godfather",
   "year": 1972
 }
+
+###
+GET localhost:8080/api/movie/getMoviesWithActors
+Accept: application/json

@@ -10,4 +10,6 @@ public interface MovieService {
     boolean addMovie(MovieDTO newMovie);
 
     List<Movie> getAllMovies();
+
+    List<MovieActName> getMoviesWithActors();
 }

@@ -8,4 +8,6 @@ public interface MovieRepository {
     void addMovie(Movie movie);
 
     List<Movie> getAllMovies();
+
+    List<MovieActName> getMoviesWithActors();
 }

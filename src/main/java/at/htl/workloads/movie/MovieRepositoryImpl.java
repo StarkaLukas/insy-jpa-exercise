@@ -28,4 +28,13 @@ public class MovieRepositoryImpl implements MovieRepository{
         var query = entityManager.createQuery("select m from Movie m", Movie.class);
         return query.getResultList();
     }
+
+    @Override
+    public List<MovieActName> getMoviesWithActors() {
+        var query = entityManager.createQuery(
+                "select NEW at.htl.workloads.movie.MovieActName(m.title, m.year, a.actor.firstName, a.actor.lastName) from Movie m join m.movieActors a", MovieActName.class
+        );
+
+        return query.getResultList();
+    }
 }
