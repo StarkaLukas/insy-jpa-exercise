@@ -10,4 +10,6 @@ public interface StoreService {
     boolean addStore(StoreDTO newStore);
 
     List<Store> getAllStores();
+
+    List<StoreLocationCount> getLocationAndCountStaff();
 }

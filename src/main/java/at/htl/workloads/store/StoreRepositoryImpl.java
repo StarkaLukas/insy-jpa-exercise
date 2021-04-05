@@ -1,5 +1,7 @@
 package at.htl.workloads.store;
 
+import at.htl.workloads.staff.Staff;
+
 import javax.enterprise.context.RequestScoped;
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -26,6 +28,15 @@ public class StoreRepositoryImpl implements StoreRepository{
     @Override
     public List<Store> getAllStores() {
         var query = entityManager.createQuery("select s from Store s", Store.class);
+        return query.getResultList();
+    }
+
+    @Override
+    public List<StoreLocationCount> getLocationAndCountStaff() {
+        var query = entityManager.createQuery(
+                "select NEW at.htl.workloads.store.StoreLocationCount(s.store.city, count(s.store.city)) from Staff s group by s.store.city",
+                StoreLocationCount.class
+        );
         return query.getResultList();
     }
 }

@@ -88,4 +88,9 @@ public class StoreServiceImpl implements StoreService{
     public List<Store> getAllStores() {
         return storeRepository.getAllStores();
     }
+
+    @Override
+    public List<StoreLocationCount> getLocationAndCountStaff() {
+        return storeRepository.getLocationAndCountStaff();
+    }
 }

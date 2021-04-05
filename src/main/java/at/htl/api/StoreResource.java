@@ -2,6 +2,7 @@ package at.htl.api;
 
 import at.htl.model.store.StoreDTO;
 import at.htl.workloads.store.Store;
+import at.htl.workloads.store.StoreLocationCount;
 import at.htl.workloads.store.StoreService;
 
 import javax.transaction.Transactional;
@@ -47,5 +48,15 @@ public class StoreResource {
     public Response addStore(StoreDTO newStore) {
         boolean result = storeService.addStore(newStore);
         return (result ? Response.ok(newStore) : Response.status(Response.Status.BAD_REQUEST)).build();
+    }
+
+    @GET
+    @Path("/getLocationAndCount")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response getLocationAndCountStaff() {
+        List<StoreLocationCount> locationAndStaff = storeService.getLocationAndCountStaff();
+
+        return Response.ok(locationAndStaff).build();
     }
 }
