@@ -1,0 +1,22 @@
+GET http://localhost:8080/api/customer/all
+Accept: application/json
+
+###
+
+GET http://localhost:8080/api/customer/4
+Accept: application/json
+
+###
+
+POST http://localhost:8080/api/customer/
+Accept: application/json
+Content-Type: application/json
+
+{
+  "firstName": "Custi",
+  "lastName": "Custo",
+  "dateOfBirth": "1990-04-09",
+  "place": "Coolplace",
+  "street": "Nicestreet 1",
+  "zip": "1010"
+}
