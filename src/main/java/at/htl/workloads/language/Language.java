@@ -17,5 +17,6 @@ public enum Language {
     ITALIAN,
     POLISH,
     UKRAINIAN,
-    ROMANIAN
+    ROMANIAN,
+    SWEDISH
 }
