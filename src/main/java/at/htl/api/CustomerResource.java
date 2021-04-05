@@ -48,4 +48,15 @@ public class CustomerResource {
         boolean result = customerService.addCustomer(newCustomer);
         return (result ? Response.ok(newCustomer) : Response.status(Response.Status.BAD_REQUEST)).build();
     }
+
+    @GET
+    @Path("/getTotalExpenses/{id}")
+    @Transactional
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response getTotalExpensesOfCustomer(@PathParam("id") Long id) {
+        double totalExpenses = customerService.getTotalExpensesOfCustomer(id);
+
+        return Response.ok(totalExpenses).build();
+    }
 }

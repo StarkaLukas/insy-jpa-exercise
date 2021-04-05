@@ -20,3 +20,9 @@ Content-Type: application/json
   "street": "Nicestreet 1",
   "zip": "1010"
 }
+
+###
+
+GET localhost:8080/api/customer/getTotalExpenses/4
+Accept: application/json
+Content-Type: application/json

@@ -9,4 +9,6 @@ public interface CustomerRepository {
     void addCustomer(Customer customer);
 
     List<Customer> getAllCustomers();
+
+    double getTotalExpensesOfCustomer(Long id);
 }

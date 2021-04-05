@@ -10,4 +10,6 @@ public interface CustomerService {
     boolean addCustomer(CustomerDTO newCustomer);
 
     List<Customer> getAllCustomers();
+
+    double getTotalExpensesOfCustomer(Long id);
 }

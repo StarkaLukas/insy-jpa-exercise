@@ -30,4 +30,11 @@ public class CustomerRepositoryImpl implements CustomerRepository{
         var query = em.createQuery("select c from Customer c", Customer.class);
         return query.getResultList();
     }
+
+    @Override
+    public double getTotalExpensesOfCustomer(Long id) {
+        return em.createQuery(
+                "select sum(s.price) from Customer c join c.sales s where c.id = :ID", Double.class
+        ).setParameter("ID", id).getSingleResult();
+    }
 }

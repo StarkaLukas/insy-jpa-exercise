@@ -45,4 +45,9 @@ public class CustomerServiceImpl implements CustomerService {
     public List<Customer> getAllCustomers() {
         return customerRepository.getAllCustomers();
     }
+
+    @Override
+    public double getTotalExpensesOfCustomer(Long id) {
+        return customerRepository.getTotalExpensesOfCustomer(id);
+    }
 }
