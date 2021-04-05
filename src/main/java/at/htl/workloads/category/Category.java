@@ -3,6 +3,7 @@ package at.htl.workloads.category;
 import at.htl.workloads.movie_category.MovieCategory;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -15,7 +16,7 @@ public class Category {
     private String name;
 
     @OneToMany(mappedBy = "category", cascade = CascadeType.PERSIST)
-    private List<MovieCategory> movieCategories;
+    private List<MovieCategory> movieCategories = new ArrayList<>();
 
     public Long getId() {
         return id;

@@ -4,6 +4,7 @@ import at.htl.workloads.movie_actor.MovieActor;
 import at.htl.workloads.person.Person;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -12,7 +13,7 @@ import java.util.List;
 public class Actor extends Person {
 
     @OneToMany(mappedBy = "actor", cascade = CascadeType.PERSIST)
-    private List<MovieActor> movieActors;
+    private List<MovieActor> movieActors = new ArrayList<>();
 
     public List<MovieActor> getMovieActors() {
         return movieActors;

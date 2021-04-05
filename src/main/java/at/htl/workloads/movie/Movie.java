@@ -29,11 +29,11 @@ public class Movie {
 
     @OneToMany(mappedBy = "movie", cascade = CascadeType.PERSIST)
     @JsonbTransient
-    private List<MovieActor> movieActors;
+    private List<MovieActor> movieActors = new ArrayList<>();
 
     @OneToMany(mappedBy = "movie", cascade = CascadeType.PERSIST)
     @JsonbTransient
-    private List<MovieCategory> movieCategories;
+    private List<MovieCategory> movieCategories = new ArrayList<>();
 
     public Long getId() {
         return id;
