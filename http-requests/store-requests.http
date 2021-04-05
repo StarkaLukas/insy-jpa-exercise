@@ -13,38 +13,34 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "city": "string",
-  "id": 0,
-  "name": "string",
+  "city": "Moscow",
+  "name": "RussianRoulette MovieRetail",
+  "id": 100,
   "staffList": [
     {
-      "firstName": "string",
-      "id": 0,
-      "lastName": "string",
-      "hireDate": "2021-04-05",
-      "salary": 0,
+      "firstName": "Ernest",
+      "lastName": "Employer",
+      "hireDate": "2021-01-05",
+      "salary": 1200,
       "sales": [
         {
           "customer": {
-            "firstName": "string",
-            "id": 0,
-            "lastName": "string",
-            "dateOfBirth": "2021-04-05",
-            "place": "string",
-            "street": "string",
-            "zip": "string"
+            "firstName": "Cleveland",
+            "lastName": "Client",
+            "dateOfBirth": "2002-04-05",
+            "place": "Niceplace",
+            "street": "Nicestreet 1",
+            "zip": "5050"
           },
-          "id": 0,
           "movie": {
-            "duration": 0,
-            "id": 0,
-            "language": "BENGALI",
-            "rating": 0,
-            "title": "string",
-            "year": 0
+            "duration": 122.00,
+            "language": "ENGLISH",
+            "rating": 8.3,
+            "title": "American Beauty",
+            "year": 1999
           },
           "payment_date": "2021-04-05",
-          "price": 0
+          "price": 24.90
         }
       ]
     }
