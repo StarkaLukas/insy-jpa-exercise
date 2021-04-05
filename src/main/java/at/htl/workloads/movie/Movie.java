@@ -18,6 +18,8 @@ public class Movie {
     private Integer year;
     private Double duration;
     private Double rating;
+
+    @Enumerated(EnumType.STRING)
     private Language language;
 
     @OneToMany(mappedBy = "movie", cascade = CascadeType.PERSIST)
