@@ -24,7 +24,7 @@ public class MovieRepositoryImpl implements MovieRepository{
     }
 
     @Override
-    public List<Movie> getMovieList() {
+    public List<Movie> getAllMovies() {
         var query = entityManager.createQuery("select m from Movie m", Movie.class);
         return query.getResultList();
     }

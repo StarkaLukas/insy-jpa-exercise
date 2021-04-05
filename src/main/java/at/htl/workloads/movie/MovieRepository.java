@@ -7,5 +7,5 @@ public interface MovieRepository {
 
     void addMovie(Movie movie);
 
-    List<Movie> getMovieList();
+    List<Movie> getAllMovies();
 }

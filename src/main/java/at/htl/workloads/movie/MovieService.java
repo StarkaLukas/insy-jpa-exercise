@@ -9,5 +9,5 @@ public interface MovieService {
 
     boolean addMovie(MovieDTO newMovie);
 
-    List<Movie> getMovieList();
+    List<Movie> getAllMovies();
 }

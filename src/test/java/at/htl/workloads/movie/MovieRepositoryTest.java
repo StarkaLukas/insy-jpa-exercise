@@ -50,12 +50,12 @@ public class MovieRepositoryTest extends IntTestBase{
         movie2.setDuration(99d);
         movie2.setLanguage(Language.CHINESE);
 
-        int savedMovies = movieRepository.getMovieList().size();
+        int savedMovies = movieRepository.getAllMovies().size();
 
         assertThatCode(() -> movieRepository.addMovie(movie1)).doesNotThrowAnyException();
         assertThatCode(() -> movieRepository.addMovie(movie2)).doesNotThrowAnyException();
 
-        List<Movie> loadedMovies = movieRepository.getMovieList();
+        List<Movie> loadedMovies = movieRepository.getAllMovies();
 
         assertThat(loadedMovies.size()).isEqualTo(savedMovies + 2);
         assertThat(loadedMovies.get(savedMovies)).isEqualTo(movie1);

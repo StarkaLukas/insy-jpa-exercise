@@ -23,7 +23,7 @@ public class Movie {
     private Language language;
 
     @OneToMany(mappedBy = "movie", cascade = CascadeType.PERSIST)
-    private List<Sale> sales = new ArrayList<Sale>();
+    private List<Sale> sales = new ArrayList<>();
 
     @OneToMany(mappedBy = "movie", cascade = CascadeType.PERSIST)
     private List<MovieActor> movieActors;

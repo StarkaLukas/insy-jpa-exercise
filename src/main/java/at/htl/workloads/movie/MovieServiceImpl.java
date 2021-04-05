@@ -40,7 +40,7 @@ public class MovieServiceImpl implements MovieService {
     }
 
     @Override
-    public List<Movie> getMovieList() {
-        return movieRepository.getMovieList();
+    public List<Movie> getAllMovies() {
+        return movieRepository.getAllMovies();
     }
 }
