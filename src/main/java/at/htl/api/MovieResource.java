@@ -3,6 +3,7 @@ package at.htl.api;
 import at.htl.model.movie.MovieDTO;
 import at.htl.workloads.movie.Movie;
 import at.htl.workloads.movie.MovieActName;
+import at.htl.workloads.movie.MovieCatName;
 import at.htl.workloads.movie.MovieService;
 
 import javax.transaction.Transactional;
@@ -57,6 +58,16 @@ public class MovieResource {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response getMoviesWithActors() {
         List<MovieActName> moviesWithActors = movieService.getMoviesWithActors();
+
+        return Response.ok(moviesWithActors).build();
+    }
+
+    @GET
+    @Path("/getMoviesWithCategories")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response getMoviesWithCategories() {
+        List<MovieCatName> moviesWithActors = movieService.getMoviesWithCategories();
 
         return Response.ok(moviesWithActors).build();
     }

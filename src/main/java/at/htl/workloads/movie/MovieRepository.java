@@ -10,4 +10,6 @@ public interface MovieRepository {
     List<Movie> getAllMovies();
 
     List<MovieActName> getMoviesWithActors();
+
+    List<MovieCatName> getMoviesWithCategories();
 }

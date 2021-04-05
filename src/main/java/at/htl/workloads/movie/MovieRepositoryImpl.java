@@ -37,4 +37,13 @@ public class MovieRepositoryImpl implements MovieRepository{
 
         return query.getResultList();
     }
+
+    @Override
+    public List<MovieCatName> getMoviesWithCategories() {
+        var query = entityManager.createQuery(
+                "select NEW at.htl.workloads.movie.MovieCatName(m.title, m.year, c.category.name) from Movie m join m.movieCategories c", MovieCatName.class
+        );
+
+        return query.getResultList();
+    }
 }

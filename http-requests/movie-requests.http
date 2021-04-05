@@ -48,3 +48,7 @@ Content-Type: application/json
 ###
 GET localhost:8080/api/movie/getMoviesWithActors
 Accept: application/json
+
+###
+GET localhost:8080/api/movie/getMoviesWithCategories
+Accept: application/json

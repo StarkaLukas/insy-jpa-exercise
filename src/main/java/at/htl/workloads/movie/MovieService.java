@@ -12,4 +12,6 @@ public interface MovieService {
     List<Movie> getAllMovies();
 
     List<MovieActName> getMoviesWithActors();
+
+    List<MovieCatName> getMoviesWithCategories();
 }
