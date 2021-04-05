@@ -2,7 +2,10 @@ package at.htl.workloads.customer;
 
 import at.htl.workloads.person.Person;
 import at.htl.workloads.sale.Sale;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import javax.json.bind.annotation.JsonbDateFormat;
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -13,13 +16,16 @@ import java.util.List;
 @DiscriminatorValue(value = "Customer")
 public class Customer extends Person {
 
+    @JsonbDateFormat("dd-MM-yyyy")
     private LocalDate dateOfBirth;
+
     private String place;
     private String street;
     private String zip;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.PERSIST)
-    private List<Sale> sales = new ArrayList<Sale>();
+    @JsonbTransient
+    private List<Sale> sales = new ArrayList<>();
 
     public LocalDate getDateOfBirth() {
         return dateOfBirth;
