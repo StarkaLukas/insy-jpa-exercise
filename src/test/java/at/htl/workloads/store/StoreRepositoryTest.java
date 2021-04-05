@@ -20,7 +20,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThatCode;
 public class StoreRepositoryTest extends IntTestBase{
 
     @Inject
-    private StoreRepositoryImpl storeRepository;
+    StoreRepositoryImpl storeRepository;
 
     @Test
     public void addStore_getStore_simple_success() {
@@ -47,7 +47,7 @@ public class StoreRepositoryTest extends IntTestBase{
     }
 
     @Test
-    public void addStores_getStores_success() {
+    public void addStores_getAllStores_success() {
         Store store1 = new Store();
         store1.setName("CoolCinema");
         store1.setCity("Coolcity");

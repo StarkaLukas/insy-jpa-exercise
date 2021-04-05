@@ -36,7 +36,7 @@ public class MovieRepositoryTest extends IntTestBase{
     }
 
     @Test
-    public void addMovies_getMovies_success() {
+    public void addMovies_getAllMovies_success() {
         Movie movie1 = new Movie();
         movie1.setTitle("The Godfather");
         movie1.setYear(1972);
